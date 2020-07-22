@@ -56,3 +56,56 @@ class Directory extends React.Component {
 }
 
 export default Directory;
+
+// function expression
+var canada = () => {
+  console.log('cold');
+}
+
+// function declaration
+function india() {
+  console.log('warm');
+}
+
+// function invocation/call/execution
+canada();
+india();
+
+function marry(person1, person2) {
+  console.log('arguments', arguments);
+  console.log(Array.from(arguments));
+  return `${person1} is now married to ${person2}`
+}
+
+marry('Tim', 'Tina')
+
+
+function two() {
+  var isValid; // undefined
+}
+
+function one() {
+  var isValid = true; // local environment
+  two(); // new EC
+}
+
+var isValid = false;
+one();
+
+// two() -- undefined
+// one() -- true
+// global() --false
+
+function sayMyName() {
+  var a = 'a';
+  return function findName() {
+    var b = 'b';
+    return function printName() {
+      var c = 'c';
+      console.log(c, b, a);
+      return 'Andrei Neagoie';
+    }
+  }
+}
+
+sayMyName()()();
