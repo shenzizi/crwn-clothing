@@ -39,4 +39,3 @@ const mapStateToProps = ({ user: { currentUser }, cart: { hidden } }) => ({
 })
 
 export default connect(mapStateToProps)(Header);
-
