@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from "react-router";
 
 import FormInput from '../form-input/form-input.component';
 import CustomButtom from '../custom-button/custom-button.component';
@@ -15,6 +16,8 @@ class SignIn extends React.Component {
       email: '',
       password: ''
     }
+    console.log('signin!!!', this.props.history.location);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleSubmit = async event => {
@@ -31,6 +34,10 @@ class SignIn extends React.Component {
   handleChange = event => {
     const { value, name } = event.target;
     this.setState({ [name]: value });
+  }
+
+  handleClick() {
+    window.location.href = 'https://google.com'
   }
 
   render() {
@@ -62,6 +69,7 @@ class SignIn extends React.Component {
             <CustomButton type='button' onClick={signInWithGoogle} isGoogleSignIn>
               Sign In with Google
           </CustomButton>
+            <button onClick={this.handleClick}>go to google</button>
           </div>
         </form>
       </div>
@@ -69,6 +77,6 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
 
 
